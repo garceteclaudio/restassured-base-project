@@ -1,0 +1,55 @@
+# Directorios y archivos de Gradle
+.gradle/
+build/
+# El wrapper de Gradle debe ser versionado, pero no los archivos temporales
+!gradle/wrapper/gradle-wrapper.jar
+# Excluir directorios 'build' dentro de 'src/main' y 'src/test' (si existen, aunque generalmente están en la raíz del módulo)
+# Esto es más bien redundante si ya tienes 'build/' en la raíz, pero se mantiene por si acaso hay configuraciones inusuales.
+# En un proyecto Gradle estándar, 'build/' en la raíz del módulo ya cubre los resultados de compilación.
+# !**/src/main/**/build/
+# !**/src/test/**/build/
+
+# IntelliJ IDEA
+.idea/
+# Algunas exclusiones específicas de .idea que pueden ser útiles:
+*.iws
+*.iml
+*.ipr
+out/
+# Excluir directorios 'out' dentro de 'src/main' y 'src/test' (similar a 'build/')
+# !**/src/main/**/out/
+# !**/src/test/**/out/
+
+# Eclipse
+.apt_generated/
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache/
+bin/
+# Excluir directorios 'bin' dentro de 'src/main' y 'src/test' (similar a 'build/')
+# !**/src/main/**/bin/
+# !**/src/test/**/bin/
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# VS Code
+.vscode/
+
+# Mac OS
+.DS_Store
+
+# Archivos de logs y resultados de pruebas
+*.log
+# logs/
+# Algunos archivos de cobertura de código u otros reportes
+# .gradle-test-kit/
+# .pnpm-store/
+# target/ # Si usaras Maven o alguna herramienta que genere 'target'

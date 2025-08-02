@@ -1,0 +1,1 @@
+rootProject.name = "api-auto-java-gradle"
