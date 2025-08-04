@@ -38,6 +38,8 @@ dependencies {
     testImplementation("io.cucumber:cucumber-java:7.18.0")
     testImplementation("io.cucumber:cucumber-junit:7.18.0") // For JUnit 4 runner
     testImplementation("io.cucumber:cucumber-junit-platform-engine:7.18.0") // For JUnit 5 integration
+
+    testImplementation ("io.rest-assured:json-schema-validator:5.3.0")
 }
 
 tasks.test {

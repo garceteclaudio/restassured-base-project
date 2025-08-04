@@ -1,22 +1,20 @@
-Feature: API Testing with Rest Assured
+Feature: Person API Operations
 
-
-  Scenario: Verify POST request to create a post
-    Given the API base URL is "https://jsonplaceholder.typicode.com"
-    And I have a request body with title "foo" and body "bar" and userId 1
-    When I send a POST request to "/posts"
+  Scenario: Create a new person successfully
+    Given I set the base API URL
+    And I prepare a valid person payload with:
+      | name      | John Doe |
+      | age       | 30       |
+      | profession| Engineer|
+      | isAdmin   | false    |
+    When I send a POST request to "/person"
     Then the response status code should be 201
-    And the response should contain "title" with value "foo"
-    And the response should contain "body" with value "bar"
-    And the response should contain "userId" with value 1
-    And the response should contain a non-null "id"
+    And the response should match the person schema
+    And the response should contain the created person details
 
-
-  Scenario: Verify GET request for the previously created post
-    Given the API base URL is "https://jsonplaceholder.typicode.com"
-    When I send a GET request to the created post
+  Scenario: Get all persons
+    Given I set the base API URL
+    When I send a GET request to "/person"
     Then the response status code should be 200
-    And the response should contain "userId" with value 1
-    And the response should contain "title" with value "foo"
-    And the response should contain "body" with value "bar"
-    And the response should contain "id" with the captured post ID
+    And the response should be a non-empty array
+    And each item in the array should match the person schema
